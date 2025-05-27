@@ -37,3 +37,39 @@ El script utiliza caché para no traducir dos veces la misma palabra o frase, ac
 
 Créditos
 Traducción automática realizada con deep-translator.
+
+
+Conversor de IDs a 50 caracteres en JSON
+Este script convierte todos los valores de las claves "id" en un archivo JSON a nuevos identificadores de 50 caracteres alfanuméricos.
+Además, reemplaza todas las referencias a esos IDs (por ejemplo, en campos como "Salta a: <id>") para mantener la consistencia en todo el archivo.
+
+Si un ID se repite, siempre se reemplaza por el mismo nuevo ID.
+
+Requisitos
+Python 3.x
+No necesitas instalar librerías externas, ya que el script solo usa módulos estándar de Python.
+
+Uso
+Coloca tu archivo original (por ejemplo, Prueba_Junior.json) en el mismo directorio que el script conversionID.py.
+
+Ejecuta el script en la terminal:
+python conversionID.py
+
+Resultado:
+Se generará un archivo llamado Prueba_Junior_ids50.json con todos los IDs convertidos y referenciados correctamente.
+Personalización
+
+Si tienes otros patrones de referencia de ID en tu JSON (además de "Salta a: <id>"), puedes modificar la expresión regular en el script para cubrir esos casos.
+Puedes cambiar el nombre de los archivos de entrada y salida modificando las líneas correspondientes en el script.
+
+Ejemplo de estructura de archivos
+/tu_carpeta/
+│
+├── conversionID.py
+├── Prueba_Junior.json
+└── Prueba_Junior_ids50.json  # (se genera automáticamente)
+
+Notas
+El script mantiene un mapeo interno para asegurar que cada ID original siempre se reemplace por el mismo nuevo ID en todas las referencias.
+Si tu JSON es muy grande, el proceso puede tardar unos segundos.
+
